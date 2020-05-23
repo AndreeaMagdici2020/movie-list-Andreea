@@ -8,11 +8,14 @@ import ResultsList from "./ResultsList";
 import Settings from "../../config/Settings";
 
 import styles from "./Search.module.css";
+import Pages from "./Pages";
 
 class Search extends Component {
   state = {
     searchResults: [],
     searchTerm: "",
+    currentPage: 1,
+    postsPerPage: 5,
   };
 
   handleSearch = () => {
@@ -50,7 +53,20 @@ class Search extends Component {
       this.handleSearch();
     }
   };
+
   render() {
+    const { currentPage, postsPerPage } = this.state;
+    const paginate = (pageNum) => this.setState({ currentPage: pageNum });
+    const nextPage = () => this.setState({ currentPage: currentPage + 1 });
+    const previousPage = () => this.setState({ currentPage: currentPage - 1 });
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = this.state.searchResults.slice(
+      indexOfFirstPost,
+      indexOfLastPost
+    );
+    console.log("currentpost:", currentPosts);
+    console.log("pagini", this.state.searchResults.length);
     return (
       <React.Fragment>
         <Container className={styles.container}>
@@ -75,8 +91,18 @@ class Search extends Component {
         {this.state.searchResults.length > 0 && (
           <Container className={styles.results}>
             <ResultsList
-              movies={this.state.searchResults}
+              //movies={this.state.searchResults}
+              movies={currentPosts}
               onAdd={this.handleAdd}
+              posts={currentPosts}
+            />
+            <br />
+            <Pages
+              postsPerPage={postsPerPage}
+              totalPosts={this.state.searchResults.length}
+              paginate={paginate}
+              nextPage={nextPage}
+              previousPage={previousPage}
             />
           </Container>
         )}
