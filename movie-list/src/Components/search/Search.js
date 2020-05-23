@@ -18,14 +18,18 @@ class Search extends Component {
   handleSearch = () => {
     console.log(this.state.searchTerm);
     const { API_URL, API_KEY } = Settings;
+    //https://api.themoviedb.org/3/search/movie?api_key=0a230986d7a69ed8de47758928c71e01&query=Terminator
     // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&query=Terminator
     const url = `${API_URL}/search/movie?api_key=${API_KEY}&query=${this.state.searchTerm}`;
 
-    axios.get(url).then((response) => {
-      this.setState({
-        searchResults: response.data.results,
-      });
-    });
+    axios
+      .get(url)
+      .then((response) => {
+        this.setState({
+          searchResults: response.data.results,
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
   handleChange = (event) => {
@@ -41,7 +45,11 @@ class Search extends Component {
     });
     this.props.onMovieAdd(movie);
   };
-
+  handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      this.handleSearch();
+    }
+  };
   render() {
     return (
       <React.Fragment>
@@ -53,10 +61,11 @@ class Search extends Component {
             className={styles.search}
             value={this.state.searchTerm}
             onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
           />
           <Button
             variant="outlined"
-            color="normal"
+            color="primary"
             startIcon={<SearchIcon />}
             onClick={this.handleSearch}
           >

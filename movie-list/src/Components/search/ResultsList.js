@@ -1,4 +1,5 @@
 import React from "react";
+import img from "./img.jpg";
 
 import {
   List,
@@ -13,7 +14,9 @@ import AddIcon from "@material-ui/icons/Add";
 
 import styles from "./ResultsList.module.css";
 
-const getPosterUrl = (imageUri) => `https://image.tmdb.org/t/p/w200${imageUri}`;
+const getPosterUrl = (imageUri) =>
+  imageUri ? `https://image.tmdb.org/t/p/w200${imageUri}` : img;
+// `https://placehold.co/200x300`;
 
 const ResultsList = (props) => (
   <React.Fragment>

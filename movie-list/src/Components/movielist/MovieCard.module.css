@@ -1,0 +1,12 @@
+.card {
+  height: 50%;
+  width: 50%;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+.cardmedia {
+  height: 250px;
+}
+.cardactions {
+  height: 60px;
+}
