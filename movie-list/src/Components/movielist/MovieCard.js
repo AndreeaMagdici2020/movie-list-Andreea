@@ -37,6 +37,8 @@ const MovieCard = (props) => {
               key={Math.ceil(Math.random() * 10000)}
               userRating={props.movie.userRating}
               changeRating={changeRating}
+              savedRating={props.savedRating}
+              movie={props.movie}
             />
           </div>
         </CardContent>

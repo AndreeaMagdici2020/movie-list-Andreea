@@ -6,16 +6,31 @@ import { Icon } from "@material-ui/core";
 class Rating extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rating: props.userRating || 0 };
+    //this.state = { rating: props.userRating || 0 };
+    this.state = { rating: props.userRating };
   }
+
   render() {
     const ratings = [...Array(5)].map((item, index) => index + 1);
-    const { changeRating, userRating = 3 } = this.props;
+    const { changeRating, userRating, savedRating, movie } = this.props;
+    const { rating } = this.state;
+    const movieId = movie.id;
+
     return (
       <div className={styles.divstart}>
         {ratings.map((item) => (
-          <Icon onClick={() => this.props.changeRating(item)}>
-            {item <= userRating ? (
+          <Icon
+            onClick={() => {
+              //this.props.changeRating(this.props.movie.original_title, item);
+              this.props.changeRating(item, movieId);
+              //console.log("din props:", this.props.movie.original_title);
+              console.log("item:", item);
+              this.setState({ rating: item });
+              console.log("rating:", rating);
+              //console.log("userrating:", this.state.rating);
+            }}
+          >
+            {rating >= item ? (
               <Star className={styles.star} />
             ) : (
               <StarBorder className={styles.star} />

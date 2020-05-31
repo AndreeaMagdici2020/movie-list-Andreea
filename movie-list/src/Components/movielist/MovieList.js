@@ -15,6 +15,7 @@ class MovieList extends React.Component {
                 movie={item}
                 onDeleteItem={this.props.onMovieDelete}
                 changeRating={this.props.changeRating}
+                savedRating={this.props.savedRating}
               />
             ))
           : "Search for a movie and add it to your list."}

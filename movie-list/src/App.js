@@ -10,11 +10,14 @@ const keygenerator = () => {
 class App extends React.Component {
   state = {
     savedMovies: [],
+    savedRating: [],
   };
 
   componentDidMount() {
     const saved = localStorage.getItem("userData");
     const userDetails = localStorage.getItem("userDetails");
+    const savedRating = localStorage.getItem("savedRating");
+
     if (userDetails) {
       const parsedUser = JSON.parse(userDetails);
       this.setState({
@@ -28,6 +31,10 @@ class App extends React.Component {
       this.setState({
         savedMovies: parsed.savedMovies,
       });
+    }
+    if (savedRating) {
+      const parsedRating = JSON.parse(savedRating);
+      this.setState({ savedRating: parsedRating });
     }
   }
 
@@ -69,9 +76,37 @@ class App extends React.Component {
       userName: value,
     });
   };
-  changeRating = (rating) => {
-    console.log(rating);
+  //changeRating = (title, userRating) => {
+  // varinata mea: console.log(userRating);
+  // console.log(title);
+  // const moviesRating = this.state.savedRating;
+  // moviesRating.push({ title, userRating });
+  // this.setState({ savedRating: moviesRating });
+  // localStorage.setItem(
+  //   "savedrating",
+  //   JSON.stringify({ savedRating: moviesRating })
+  // );
+  //=====
+
+  // };
+
+  changeRating = (rating, movieId) => {
+    const foundIndex = this.state.savedMovies.findIndex(
+      (item) => item.id === movieId
+    );
+    const { savedMovies } = this.state;
+    const movie = savedMovies[foundIndex];
+    savedMovies[foundIndex] = Object.assign({}, movie, { userRating: rating });
+    this.setState({
+      savedMovies: savedMovies,
+    });
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({ savedMovies: savedMovies })
+    );
+    console.log(this.state.savedMovies[foundIndex]);
   };
+  //in arrayul cu movies din localstorage - adaug un element cheie valoare rating;
   logout = () => {
     this.setState({ user: null });
     localStorage.removeItem("userDetails");
@@ -89,6 +124,7 @@ class App extends React.Component {
       savedMovies: movies,
     });
   };
+
   render() {
     const { savedMovies, user } = this.state;
     return (
@@ -104,6 +140,7 @@ class App extends React.Component {
                 key={keygenerator()}
                 savedMovies={savedMovies}
                 onMovieDelete={this.onMovieDelete}
+                savedRating={this.state.savedRating}
                 changeRating={this.changeRating}
               />
             </Container>
