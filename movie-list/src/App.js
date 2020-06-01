@@ -11,10 +11,11 @@ class App extends React.Component {
   state = {
     savedMovies: [],
     savedRating: [],
+    user: null,
   };
 
   componentDidMount() {
-    const saved = localStorage.getItem("userData");
+    const savedMovies = localStorage.getItem("userData");
     const userDetails = localStorage.getItem("userDetails");
     const savedRating = localStorage.getItem("savedRating");
 
@@ -26,15 +27,11 @@ class App extends React.Component {
     } else {
       console.log("redirect to login");
     }
-    if (saved) {
-      const parsed = JSON.parse(saved);
+    if (savedMovies) {
+      const parsed = JSON.parse(savedMovies);
       this.setState({
         savedMovies: parsed.savedMovies,
       });
-    }
-    if (savedRating) {
-      const parsedRating = JSON.parse(savedRating);
-      this.setState({ savedRating: parsedRating });
     }
   }
 
