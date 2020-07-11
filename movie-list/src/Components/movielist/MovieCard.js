@@ -12,11 +12,13 @@ import wall3 from "./wall3.jpg";
 import Rating from "./Rating";
 import styles from "./MovieCard.module.css";
 import img from "./img.jpg";
+import { useHistory } from "react-router-dom";
 
 const getPosterUrl = (imageUri) =>
   imageUri ? `https://image.tmdb.org/t/p/w200${imageUri}` : img;
 const MovieCard = (props) => {
   const { movie, onDeleteItem, changeRating } = props;
+  let history = useHistory();
   return (
     <Card className={styles.card}>
       <CardActionArea className={styles.cardactionarea}>
@@ -50,6 +52,13 @@ const MovieCard = (props) => {
           onClick={() => onDeleteItem(movie)}
         >
           Delete
+        </Button>
+        <Button
+          size="small"
+          color="secondary"
+          onClick={() => history.push(`/details/${movie.id}`)}
+        >
+          View Details
         </Button>
       </CardActions>
     </Card>

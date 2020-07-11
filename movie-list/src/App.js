@@ -1,8 +1,10 @@
 import React from "react";
 import Header from "./shared/header/Header";
 import { Grid, Container } from "@material-ui/core";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { TextField, Button } from "@material-ui/core";
 import MovieList from "./Components/movielist/MovieList";
+import MovieDetails from "./Components/MovieDetails/MovieDetails";
 import Search from "./Components/search/Search";
 const keygenerator = () => {
   Math.ceil(Math.random() * 10000);
@@ -125,34 +127,48 @@ class App extends React.Component {
   render() {
     const { savedMovies, user } = this.state;
     return (
-      <div className="App">
-        <Header user={user} onLogout={this.logout} />
-        {user ? (
-          <React.Fragment>
+      <Router>
+        <div className="App">
+          <Header user={user} onLogout={this.logout} />
+          {user ? (
+            <Switch>
+              <Route path="/" exact>
+                <React.Fragment>
+                  <Container maxWidth="md">
+                    <Search onMovieAdd={this.onMovieAdd} />
+                  </Container>
+                  <Container maxWidth="md">
+                    <MovieList
+                      key={keygenerator()}
+                      savedMovies={savedMovies}
+                      onMovieDelete={this.onMovieDelete}
+                      savedRating={this.state.savedRating}
+                      changeRating={this.changeRating}
+                    />
+                  </Container>
+                </React.Fragment>
+              </Route>
+              <Route path="/Settings"> Hello {user.userName}</Route>
+              <Route path="/details/:id">
+                <MovieDetails />
+              </Route>
+              <Route path="/FavoriteMovies" exact>
+                My Favorite Movies 🎞️
+              </Route>
+              <Route path="*">Page not Found</Route>
+            </Switch>
+          ) : (
             <Container maxWidth="md">
-              <Search onMovieAdd={this.onMovieAdd} />
+              <h2>Hello stranger!</h2>
+              <h4>What is your name?</h4>
+              <TextField label="Name" onChange={this.onUserChange} />
+              <Button variant="contained" onClick={this.handleAddUser}>
+                Save
+              </Button>
             </Container>
-            <Container maxWidth="md">
-              <MovieList
-                key={keygenerator()}
-                savedMovies={savedMovies}
-                onMovieDelete={this.onMovieDelete}
-                savedRating={this.state.savedRating}
-                changeRating={this.changeRating}
-              />
-            </Container>
-          </React.Fragment>
-        ) : (
-          <Container maxWidth="md">
-            <h2>Hello stranger!</h2>
-            <h4>What is your name?</h4>
-            <TextField label="Name" onChange={this.onUserChange} />
-            <Button variant="contained" onClick={this.handleAddUser}>
-              Save
-            </Button>
-          </Container>
-        )}
-      </div>
+          )}
+        </div>
+      </Router>
     );
   }
 }

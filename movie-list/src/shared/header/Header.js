@@ -5,6 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/core/MenuItem";
+import { Link } from "react-router-dom";
+import SettingsIcon from "@material-ui/icons/Settings";
+import HomeIcon from "@material-ui/icons/Home";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const Header = (props) => {
   return (
@@ -16,11 +20,30 @@ const Header = (props) => {
         <Typography style={{ flexGrow: 1 }} variant="h6">
           📺 Movie List 🍿
         </Typography>
+
         {props.user && <span>{props.user.userName}</span>}
         {props.user && (
-          <Button onClick={props.onLogout} color="inherit">
-            Logout
-          </Button>
+          <span>
+            <IconButton color="inherit">
+              <Link to="/Settings">
+                <SettingsIcon />
+              </Link>
+            </IconButton>
+            <IconButton color="inherit">
+              <Link to="/FavoriteMovies">
+                <FavoriteIcon />
+              </Link>
+            </IconButton>
+            <IconButton>
+              <Link to="/">
+                <HomeIcon color="default" />
+              </Link>
+            </IconButton>
+
+            <Button onClick={props.onLogout} color="inherit">
+              Logout
+            </Button>
+          </span>
         )}
       </Toolbar>
     </AppBar>
