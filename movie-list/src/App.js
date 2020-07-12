@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./shared/header/Header";
 import { Grid, Container } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Typography } from "@material-ui/core";
 import MovieList from "./Components/movielist/MovieList";
 import MovieDetails from "./Components/MovieDetails/MovieDetails";
 import Search from "./Components/search/Search";
@@ -153,7 +153,27 @@ class App extends React.Component {
                 <MovieDetails />
               </Route>
               <Route path="/FavoriteMovies" exact>
-                My Favorite Movies 🎞️
+                <Typography
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "25px",
+                    marginTop: "70px",
+                    marginBottom: "40px",
+                    textAlign: "center",
+                    color: "navy",
+                  }}
+                >
+                  My Favorite Movies 🎞️
+                </Typography>
+                <div style={{ marginLeft: "30%" }}>
+                  <MovieList
+                    key={keygenerator()}
+                    savedMovies={savedMovies}
+                    onMovieDelete={this.onMovieDelete}
+                    savedRating={this.state.savedRating}
+                    changeRating={this.changeRating}
+                  />
+                </div>
               </Route>
               <Route path="*">Page not Found</Route>
             </Switch>
