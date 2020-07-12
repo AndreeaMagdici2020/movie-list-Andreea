@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import getDetails from "./../../api/MovieService";
 import { Link, useParams, useHistory } from "react-router-dom";
 import img from "./img.jpg";
+
 import {
   Card,
   CardActionArea,
@@ -24,18 +25,39 @@ const MovieDetails = () => {
     getDetails(id).then((results) => setMovie(results.data));
   }, [id]);
   return (
-    <Card>
-      <CardActionArea>
-        <CardContent>
-          <CardMedia image="" description="movie poster">
-            <img src={getPosterUrl(movie.poster_path)} alt="Movie poster" />
-          </CardMedia>
-          <Typography variant="h5">{movie.original_title}</Typography>
-          Details for movie {movie.original_title}
-        </CardContent>
-      </CardActionArea>
-      <Link to="/">Home</Link>
-    </Card>
+    <div>
+      <Card style={{ width: "300px", marginLeft: "40%", marginTop: "100px" }}>
+        <CardActionArea>
+          <CardContent>
+            <CardMedia
+              image=""
+              description="movie poster"
+              style={{ marginLeft: "30px" }}
+            >
+              <img src={getPosterUrl(movie.poster_path)} alt="Movie poster" />
+            </CardMedia>
+            <Typography
+              variant="h5"
+              style={{ textAlign: "center", fontWeight: "Bold", color: "navy" }}
+            >
+              {movie.original_title}
+            </Typography>
+            <p style={{ textAlign: "center" }}>
+              Details for movie {movie.original_title}
+            </p>
+          </CardContent>
+        </CardActionArea>
+        <button
+          style={{
+            marginLeft: "120px",
+            fontSize: "17px",
+            backgroundColor: "lightBlue",
+          }}
+        >
+          <Link to="/">Home</Link>
+        </button>
+      </Card>
+    </div>
   );
 };
 export default MovieDetails;
