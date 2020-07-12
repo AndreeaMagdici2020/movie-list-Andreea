@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Search.module.css";
+import Button from "@material-ui/core/Button";
 class Pages extends React.Component {
   render() {
     const {
@@ -27,7 +28,9 @@ class Pages extends React.Component {
                 previousPage();
               }}
             >
-              Prev
+              <Button variant="contained" color="primary">
+                Prev
+              </Button>
             </p>
           </li>
           {pageNumbers.map((num) => (
@@ -37,7 +40,9 @@ class Pages extends React.Component {
                   paginate(num);
                 }}
               >
-                {num}
+                <Button variant="contained" color="primary">
+                  {num}
+                </Button>
               </p>
             </li>
           ))}
@@ -48,7 +53,9 @@ class Pages extends React.Component {
                 nextPage();
               }}
             >
-              Next
+              <Button variant="contained" color="primary">
+                Next
+              </Button>
             </p>
           </li>
         </ul>
