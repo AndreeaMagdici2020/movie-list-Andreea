@@ -8,9 +8,7 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-import wall3 from "./wall3.jpg";
 import Rating from "./Rating";
-import styles from "./MovieCard.module.css";
 import img from "./img.jpg";
 import { useHistory } from "react-router-dom";
 
@@ -20,16 +18,31 @@ const MovieCard = (props) => {
   const { movie, onDeleteItem, changeRating } = props;
   let history = useHistory();
   return (
-    <Card className={styles.card}>
-      <CardActionArea className={styles.cardactionarea}>
+    <Card
+      style={{
+        height: "800px",
+        width: "450px",
+        marginBottom: "20px",
+      }}
+    >
+      <CardActionArea
+        style={{
+          width: "100%",
+          height: "80%",
+        }}
+      >
         <CardMedia
-          className={styles.cardmedia}
           component="img"
-          //image={wall3}
           image={getPosterUrl(movie.poster_path)}
           title=""
+          style={{
+            maxHeight: "100%",
+            maxWidth: "100",
+            margin: "auto",
+            display: "block",
+          }}
         ></CardMedia>
-        <CardContent>
+        <CardContent style={{ width: "100%", height: "100px" }}>
           <Typography variant="h5">{movie.original_title}</Typography>
           <Typography variant="body2" color="textSecondary">
             {movie.release_date}
@@ -45,7 +58,7 @@ const MovieCard = (props) => {
           </div>
         </CardContent>
       </CardActionArea>
-      <CardActions className={styles.cardactions}>
+      <CardActions style={{ width: "100%", height: "30%" }}>
         <Button
           size="small"
           color="primary"

@@ -137,7 +137,7 @@ class App extends React.Component {
                   <Container maxWidth="md">
                     <Search onMovieAdd={this.onMovieAdd} />
                   </Container>
-                  <Container maxWidth="md">
+                  <Container maxWidth="md" style={{ marginLeft: "30%" }}>
                     <MovieList
                       key={keygenerator()}
                       savedMovies={savedMovies}
@@ -148,7 +148,17 @@ class App extends React.Component {
                   </Container>
                 </React.Fragment>
               </Route>
-              <Route path="/Settings"> Hello {user.userName}</Route>
+              <Route path="/Settings">
+                <Typography
+                  align="center"
+                  color="primary"
+                  variant="h4"
+                  style={{ marginTop: "200px" }}
+                >
+                  {" "}
+                  Hello {user.userName}
+                </Typography>
+              </Route>
               <Route path="/details/:id">
                 <MovieDetails />
               </Route>
@@ -165,7 +175,7 @@ class App extends React.Component {
                 >
                   My Favorite Movies 🎞️
                 </Typography>
-                <div style={{ marginLeft: "30%" }}>
+                <div style={{ marginLeft: "35%" }}>
                   <MovieList
                     key={keygenerator()}
                     savedMovies={savedMovies}
