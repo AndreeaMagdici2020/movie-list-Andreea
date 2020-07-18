@@ -22,7 +22,7 @@ const MovieCard = (props) => {
       style={{
         height: "800px",
         width: "450px",
-        marginBottom: "20px",
+        marginBottom: "60px",
       }}
     >
       <CardActionArea
@@ -42,8 +42,18 @@ const MovieCard = (props) => {
             display: "block",
           }}
         ></CardMedia>
-        <CardContent style={{ width: "100%", height: "100px" }}>
-          <Typography variant="h5">{movie.original_title}</Typography>
+        <CardContent
+          style={{
+            width: "100%",
+            height: "100px",
+            overflow: "auto",
+            marginTop: "3px",
+            marginBottom: "3px",
+          }}
+        >
+          <Typography variant="h6" style={{ fontSize: "1vw" }}>
+            {movie.original_title}
+          </Typography>
           <Typography variant="body2" color="textSecondary">
             {movie.release_date}
           </Typography>
@@ -58,7 +68,14 @@ const MovieCard = (props) => {
           </div>
         </CardContent>
       </CardActionArea>
-      <CardActions style={{ width: "100%", height: "30%" }}>
+      <CardActions
+        style={{
+          width: "100%",
+          height: "30%",
+          marginTop: "10px",
+          marginBottom: "10px",
+        }}
+      >
         <Button
           size="small"
           color="primary"
