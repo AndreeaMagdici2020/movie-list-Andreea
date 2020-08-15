@@ -9,10 +9,11 @@ import { Link } from "react-router-dom";
 import SettingsIcon from "@material-ui/icons/Settings";
 import HomeIcon from "@material-ui/icons/Home";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import styles from "./HeaderStyling.module.css";
 
 const Header = (props) => {
   return (
-    <AppBar position="static">
+    <AppBar className={styles.header} position="static">
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="menu">
           <MenuIcon />
@@ -31,12 +32,12 @@ const Header = (props) => {
             </IconButton>
             <IconButton color="inherit">
               <Link to="/FavoriteMovies">
-                <FavoriteIcon />
+                <FavoriteIcon style={{ color: "red" }} />
               </Link>
             </IconButton>
             <IconButton>
               <Link to="/">
-                <HomeIcon color="default" />
+                <HomeIcon style={{ color: "white" }} />
               </Link>
             </IconButton>
 

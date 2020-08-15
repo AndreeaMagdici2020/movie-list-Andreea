@@ -1,3 +1,11 @@
 .poster {
   width: 120px;
 }
+
+.gridContainer {
+  margin: 30px;
+}
+p {
+  font-family: "Merriweather, Georgia, serif";
+  font-size: 1vw;
+}

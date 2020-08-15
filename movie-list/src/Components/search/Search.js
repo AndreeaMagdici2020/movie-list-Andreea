@@ -42,10 +42,10 @@ class Search extends Component {
   };
 
   handleAdd = (movie) => {
-    this.setState({
-      searchResults: [],
-      searchTerm: "",
-    });
+    // this.setState({
+    //   searchResults: [],
+    //   searchTerm: "",
+    // });
     this.props.onMovieAdd(movie);
   };
   handleKeyPress = (event) => {

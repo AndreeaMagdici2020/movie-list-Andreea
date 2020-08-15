@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { TextField, Button, Typography } from "@material-ui/core";
 import MovieList from "./Components/movielist/MovieList";
 import MovieDetails from "./Components/MovieDetails/MovieDetails";
+import MovieDescription from "./Components/MovieDetails/MovieDescription";
 import Search from "./Components/search/Search";
+import styles from "./AppStyling.module.css";
 const keygenerator = () => {
   Math.ceil(Math.random() * 10000);
 };
@@ -128,7 +130,7 @@ class App extends React.Component {
     const { savedMovies, user } = this.state;
     return (
       <Router>
-        <div className="App">
+        <div className={styles.App}>
           <Header user={user} onLogout={this.logout} />
           {user ? (
             <Switch>
@@ -137,7 +139,7 @@ class App extends React.Component {
                   <Container maxWidth="md">
                     <Search onMovieAdd={this.onMovieAdd} />
                   </Container>
-                  <Container maxWidth="md" style={{ marginLeft: "30%" }}>
+                  {/* <Container maxWidth="md" style={{ marginLeft: "30%" }}>
                     <MovieList
                       key={keygenerator()}
                       savedMovies={savedMovies}
@@ -145,7 +147,7 @@ class App extends React.Component {
                       savedRating={this.state.savedRating}
                       changeRating={this.changeRating}
                     />
-                  </Container>
+                  </Container> */}
                 </React.Fragment>
               </Route>
               <Route path="/Settings">
@@ -160,7 +162,8 @@ class App extends React.Component {
                 </Typography>
               </Route>
               <Route path="/details/:id">
-                <MovieDetails />
+                {/* <MovieDetails /> !!!*/}
+                <MovieDescription />
               </Route>
               <Route path="/FavoriteMovies" exact>
                 <Typography
@@ -175,7 +178,13 @@ class App extends React.Component {
                 >
                   My Favorite Movies 🎞️
                 </Typography>
-                <div style={{ marginLeft: "35%" }}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                    marginLeft: "80px",
+                  }}
+                >
                   <MovieList
                     key={keygenerator()}
                     savedMovies={savedMovies}
@@ -184,6 +193,9 @@ class App extends React.Component {
                     changeRating={this.changeRating}
                   />
                 </div>
+              </Route>
+              <Route path="/MovieDescription">
+                <MovieDescription />
               </Route>
               <Route path="*">Page not Found</Route>
             </Switch>

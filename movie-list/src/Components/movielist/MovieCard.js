@@ -20,15 +20,16 @@ const MovieCard = (props) => {
   return (
     <Card
       style={{
-        height: "800px",
-        width: "450px",
-        marginBottom: "60px",
+        width: "80%",
+        height: "auto",
+        marginBottom: "30px",
+        boxShadow: "11px 11px 9px  #D3D3D3",
       }}
     >
       <CardActionArea
         style={{
           width: "100%",
-          height: "80%",
+          height: "auto",
         }}
       >
         <CardMedia
@@ -36,8 +37,8 @@ const MovieCard = (props) => {
           image={getPosterUrl(movie.poster_path)}
           title=""
           style={{
-            maxHeight: "100%",
-            maxWidth: "100",
+            height: "auto",
+            maxWidth: "100%",
             margin: "auto",
             display: "block",
           }}
@@ -45,7 +46,7 @@ const MovieCard = (props) => {
         <CardContent
           style={{
             width: "100%",
-            height: "100px",
+            height: "70px",
             overflow: "auto",
             marginTop: "3px",
             marginBottom: "3px",
@@ -71,20 +72,21 @@ const MovieCard = (props) => {
       <CardActions
         style={{
           width: "100%",
-          height: "30%",
-          marginTop: "10px",
-          marginBottom: "10px",
+          height: "auto",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Button
-          size="small"
+          size="large"
           color="primary"
           onClick={() => onDeleteItem(movie)}
         >
           Delete
         </Button>
         <Button
-          size="small"
+          size="large"
           color="secondary"
           onClick={() => history.push(`/details/${movie.id}`)}
         >
