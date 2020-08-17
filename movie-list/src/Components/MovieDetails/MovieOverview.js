@@ -5,20 +5,42 @@ const MovieOverview = (props) => {
   const [show, setShow] = useState(false);
   return (
     <div>
-      <Tooltip title="see movie overview" className={styles.tooltip}>
+      <Tooltip
+        className={styles.tooltip}
+        title={
+          <p
+            style={{
+              fontSize: "18px",
+
+              color: "white",
+            }}
+          >
+            See the movie overview
+          </p>
+        }
+        placement="right"
+        className={styles.tooltip}
+      >
         <button
           className={styles.detailsBtn}
           onClick={() => {
             setShow(!show);
           }}
-          title="See movie details"
         >
           Movie
           <br />
-          details
+          overview
         </button>
       </Tooltip>
-      {show === true ? <div>{props.item.overview}</div> : ""}
+      {show === true ? (
+        <div className={styles.overview}>
+          <em>Overview:</em>
+          <br />
+          {props.item.overview}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

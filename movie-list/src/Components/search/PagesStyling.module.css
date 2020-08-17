@@ -1,0 +1,17 @@
+.nav {
+  /* border: 2px solid navy; */
+  height: 80px;
+  width: auto;
+  margin: 20px;
+}
+
+.nav ul li p {
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 11px;
+  cursor: pointer;
+}
+
+ul {
+  margin-left: 30%;
+}

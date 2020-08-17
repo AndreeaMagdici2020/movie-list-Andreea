@@ -47,6 +47,7 @@ class Search extends Component {
     //   searchTerm: "",
     // });
     this.props.onMovieAdd(movie);
+    alert("the movie was added");
   };
   handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -80,6 +81,7 @@ class Search extends Component {
             onKeyPress={this.handleKeyPress}
           />
           <Button
+            className={styles.searchBtn}
             variant="outlined"
             color="primary"
             startIcon={<SearchIcon />}

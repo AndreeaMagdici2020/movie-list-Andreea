@@ -12,6 +12,8 @@ import {
   CardActions,
   Button,
 } from "@material-ui/core";
+import styles from "./MovieDetailsStyling.module.css";
+
 const getPosterUrl = (imageUri) =>
   imageUri ? `https://image.tmdb.org/t/p/w200${imageUri}` : img;
 // `https://placehold.co/200x300`;
@@ -26,13 +28,13 @@ const MovieDetails = () => {
   }, [id]);
   return (
     <div>
-      <Card style={{ width: "300px", marginLeft: "40%", marginTop: "100px" }}>
+      <Card className={styles.Card}>
         <CardActionArea>
           <CardContent>
             <CardMedia
+              className={styles.cardMedia}
               image=""
               description="movie poster"
-              style={{ marginLeft: "30px" }}
             >
               <img src={getPosterUrl(movie.poster_path)} alt="Movie poster" />
             </CardMedia>

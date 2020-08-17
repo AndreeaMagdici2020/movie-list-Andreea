@@ -1,0 +1,14 @@
+ol {
+  margin-left: 0px;
+  list-style: none;
+  margin-top: 10px;
+}
+ol li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  text-align: left;
+  font-size: 1vw;
+  color: navy;
+  font-weight: 500;
+}

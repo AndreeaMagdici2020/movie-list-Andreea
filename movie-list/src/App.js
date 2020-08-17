@@ -8,6 +8,7 @@ import MovieDetails from "./Components/MovieDetails/MovieDetails";
 import MovieDescription from "./Components/MovieDetails/MovieDescription";
 import Search from "./Components/search/Search";
 import styles from "./AppStyling.module.css";
+import TopRatedMovies from "./Components/TopRatedMovies/TopRatedMovies";
 const keygenerator = () => {
   Math.ceil(Math.random() * 10000);
 };
@@ -53,6 +54,7 @@ class App extends React.Component {
     this.setState({
       savedMovies: movies,
     });
+    console.log("the movie was added");
   };
 
   handleAddUser = (event) => {
@@ -136,9 +138,17 @@ class App extends React.Component {
             <Switch>
               <Route path="/" exact>
                 <React.Fragment>
-                  <Container maxWidth="md">
-                    <Search onMovieAdd={this.onMovieAdd} />
-                  </Container>
+                  <div className={styles.searchContainer}>
+                    <div style={{ display: "block" }}>
+                      <div className={styles.divItem}>
+                        <TopRatedMovies />
+                      </div>
+                      <Search
+                        className={styles.searchItem}
+                        onMovieAdd={this.onMovieAdd}
+                      />
+                    </div>
+                  </div>
                   {/* <Container maxWidth="md" style={{ marginLeft: "30%" }}>
                     <MovieList
                       key={keygenerator()}

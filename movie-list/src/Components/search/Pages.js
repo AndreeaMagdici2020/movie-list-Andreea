@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Search.module.css";
+import styles from "./PagesStyling.module.css";
 import Button from "@material-ui/core/Button";
 class Pages extends React.Component {
   render() {
@@ -34,7 +34,10 @@ class Pages extends React.Component {
             </p>
           </li>
           {pageNumbers.map((num) => (
-            <li style={{ float: "left", margin: "3px" }}>
+            <li
+              key={Math.random() * 10000}
+              style={{ float: "left", margin: "3px" }}
+            >
               <p
                 onClick={() => {
                   paginate(num);

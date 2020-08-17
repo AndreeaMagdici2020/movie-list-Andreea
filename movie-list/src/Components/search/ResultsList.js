@@ -18,7 +18,7 @@ const getPosterUrl = (imageUri) =>
 const ResultsList = (props) => (
   <React.Fragment>
     {props.movies.map((item) => (
-      <Grid className={styles.gridContainer} container xs={12}>
+      <Grid className={styles.gridContainer} container key={item.id}>
         <Grid item xs={2}>
           <img src={getPosterUrl(item.poster_path)} className={styles.poster} />
         </Grid>
@@ -33,7 +33,11 @@ const ResultsList = (props) => (
           <p> Release date: {item.release_date}</p>
         </Grid>
         <Grid item xs={2}>
-          <IconButton onClick={() => props.onAdd(item)}>
+          <IconButton
+            onClick={() => {
+              props.onAdd(item);
+            }}
+          >
             <AddIcon />
           </IconButton>
         </Grid>

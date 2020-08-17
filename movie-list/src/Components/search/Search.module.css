@@ -1,23 +1,17 @@
 div.container {
-  margin: 16px 0;
+  margin-top: 100px;
+  margin-bottom: 3%;
+  margin-left: 26%;
+  margin-right: 5px;
   display: flex;
+  width: 70vw;
+  height: auto;
 }
 
 div.search {
-  width: 75%;
-  margin-right: 8px;
+  width: 30vw;
 }
-
-.nav {
-  border: 2px solid navy;
-  height: 80px;
-  width: auto;
-  margin: 20px;
-}
-
-.nav ul li p {
-  align-items: center;
-  vertical-align: middle;
-  margin-top: 11px;
-  cursor: pointer;
+.searchBtn {
+  width: 8vw;
+  font-size: small;
 }
