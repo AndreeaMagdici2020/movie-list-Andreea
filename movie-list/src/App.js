@@ -133,22 +133,25 @@ class App extends React.Component {
     return (
       <Router>
         <div className={styles.App}>
-          <Header user={user} onLogout={this.logout} />
+          <div className={styles.header}>
+            <Header user={user} onLogout={this.logout} />
+          </div>
           {user ? (
             <Switch>
               <Route path="/" exact>
                 <React.Fragment>
-                  <div className={styles.searchContainer}>
-                    <div style={{ display: "block" }}>
-                      <div className={styles.divItem}>
-                        <TopRatedMovies />
-                      </div>
+                  <div className={styles.mainPage}>
+                    <div className={styles.topRatedDiv}>
+                      <TopRatedMovies />
+                    </div>
+                    <div className={styles.searchDiv}>
                       <Search
                         className={styles.searchItem}
                         onMovieAdd={this.onMovieAdd}
                       />
                     </div>
                   </div>
+
                   {/* <Container maxWidth="md" style={{ marginLeft: "30%" }}>
                     <MovieList
                       key={keygenerator()}

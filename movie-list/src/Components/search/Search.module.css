@@ -1,17 +1,23 @@
-div.container {
-  margin-top: 100px;
-  margin-bottom: 3%;
-  margin-left: 26%;
-  margin-right: 5px;
-  display: flex;
-  width: 70vw;
-  height: auto;
-}
+.searchZone {
+  padding: 5px;
 
-div.search {
-  width: 30vw;
+  margin-top: 10%;
+  overflow: hidden;
+}
+.containerTextField {
+  padding: 5px;
+  margin-bottom: 10%;
+  margin-left: 20%;
+}
+.search {
+  width: 400px;
 }
 .searchBtn {
-  width: 8vw;
-  font-size: small;
+  font-size: 15px;
+  padding: 5px;
+  height: 55px;
+}
+.img {
+  padding: 15px;
+  margin-left: 23%;
 }

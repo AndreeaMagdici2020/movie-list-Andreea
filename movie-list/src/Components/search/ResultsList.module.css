@@ -1,11 +1,12 @@
 .poster {
-  width: 120px;
+  width: 200px;
 }
 
-.gridContainer {
-  margin-left: 14%;
-}
 p {
   font-family: "Merriweather, Georgia, serif";
   font-size: 1vw;
+}
+.gridContainer {
+  margin: 2%;
+  width: fit-content;
 }

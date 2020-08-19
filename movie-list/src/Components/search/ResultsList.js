@@ -19,7 +19,7 @@ const ResultsList = (props) => (
   <React.Fragment>
     {props.movies.map((item) => (
       <Grid className={styles.gridContainer} container key={item.id}>
-        <Grid item xs={2}>
+        <Grid className={styles.gridImg} item xs={2}>
           <img src={getPosterUrl(item.poster_path)} className={styles.poster} />
         </Grid>
         <Grid item xs={2}>

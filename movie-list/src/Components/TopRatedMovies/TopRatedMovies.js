@@ -12,7 +12,7 @@ class TopRatedMovies extends React.Component {
   getTopRatedMovies = () => {
     const { API_URL, API_KEY } = Settings;
     const url = `${API_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
-    //https://api.themoviedb.org/3/discover/movie?api_key=0a230986d7a69ed8de47758928c71e01&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1
+
     axios
       .get(url)
       .then((response) => {
@@ -28,11 +28,7 @@ class TopRatedMovies extends React.Component {
   componentDidMount() {
     this.getTopRatedMovies();
   }
-  getFirstTenMovies(x) {
-    for (let i = 0; i < 10; i++) {
-      return x[i];
-    }
-  }
+
   render() {
     return (
       <div className={styles.topratedmoviesdiv}>
@@ -42,7 +38,7 @@ class TopRatedMovies extends React.Component {
             return <PopularMovieItem item={item} />;
           })} */}
           {this.state.topTenRated.splice(0, 10).map((item) => {
-            return <PopularMovieItem item={item} />;
+            return <PopularMovieItem key={item.id} item={item} />;
           })}
         </ol>
       </div>

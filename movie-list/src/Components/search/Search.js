@@ -9,6 +9,7 @@ import Settings from "../../config/Settings";
 
 import styles from "./Search.module.css";
 import Pages from "./Pages";
+import popcorn2 from "./popcorn2.png";
 
 class Search extends Component {
   state = {
@@ -69,8 +70,8 @@ class Search extends Component {
     console.log("currentpost:", currentPosts);
     console.log("pagini", this.state.searchResults.length);
     return (
-      <React.Fragment>
-        <Container className={styles.container}>
+      <div className={styles.searchZone}>
+        <div className={styles.containerTextField}>
           <TextField
             placeholder="Type the name of a movie..."
             label="Search"
@@ -89,7 +90,8 @@ class Search extends Component {
           >
             Search
           </Button>
-        </Container>
+        </div>
+        <img src={popcorn2} className={styles.img} />
         {this.state.searchResults.length > 0 && (
           <Container className={styles.results}>
             <ResultsList
@@ -98,7 +100,7 @@ class Search extends Component {
               onAdd={this.handleAdd}
               posts={currentPosts}
             />
-            <br />
+
             <Pages
               postsPerPage={postsPerPage}
               totalPosts={this.state.searchResults.length}
@@ -108,7 +110,7 @@ class Search extends Component {
             />
           </Container>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }
