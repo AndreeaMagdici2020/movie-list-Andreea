@@ -1,3 +1,28 @@
+.divHeader {
+  width: 90vw;
+}
 .header {
-  width: 100%;
+  overflow: hidden;
+  min-width: 100%;
+}
+span {
+  font-size: 3em;
+}
+
+@media screen and (max-width: 700px) and (min-width: 280px) {
+  .gridActions {
+    margin-left: auto !important;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+  .gridActions {
+    margin-left: 32% !important;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1024px) {
+  .gridActions {
+    margin-left: 40% !important;
+  }
 }

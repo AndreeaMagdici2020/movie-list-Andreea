@@ -19,20 +19,26 @@ const ResultsList = (props) => (
   <React.Fragment>
     {props.movies.map((item) => (
       <Grid className={styles.gridContainer} container key={item.id}>
-        <Grid className={styles.gridImg} item xs={2}>
+        <Grid className={styles.gridImg} item xs={4}>
           <img src={getPosterUrl(item.poster_path)} className={styles.poster} />
+          <div id="mOverv" style={{ display: "block" }}>
+            <MovieOverview item={item} />
+          </div>
         </Grid>
-        <Grid item xs={2}>
+        <Grid className={styles.gridTitle} item xs={3}>
           <p>
-            {" "}
             Original Title: <br />
             {item.original_title}
           </p>
         </Grid>
-        <Grid item xs={2}>
-          <p> Release date: {item.release_date}</p>
+        <Grid className={styles.gridRelease} item xs={3}>
+          <p>
+            {" "}
+            Release date: <br></br>
+            {item.release_date}
+          </p>
         </Grid>
-        <Grid item xs={2}>
+        <Grid className={styles.gridButton} item xs={2}>
           <IconButton
             onClick={() => {
               props.onAdd(item);
@@ -40,11 +46,6 @@ const ResultsList = (props) => (
           >
             <AddIcon />
           </IconButton>
-        </Grid>
-        <Grid item xs={4}>
-          <div id="mOverv" style={{ display: "flex" }}>
-            <MovieOverview item={item} />
-          </div>
         </Grid>
       </Grid>
     ))}

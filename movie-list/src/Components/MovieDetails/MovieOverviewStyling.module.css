@@ -13,11 +13,11 @@
 }
 .overview {
   border: 1px solid blue;
-  margin-left: 150px;
+  margin-left: 5px;
   float: left;
-  width: 100%;
+  min-width: 45vw;
   height: auto;
-  margin-top: -50px;
+  margin-top: 3%;
   padding: 15px;
   background-color: #00478f;
   color: white;

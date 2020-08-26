@@ -1,23 +1,111 @@
 .searchZone {
-  padding: 5px;
+  display: inline;
+  padding: 15px;
+}
 
-  margin-top: 10%;
-  overflow: hidden;
-}
-.containerTextField {
-  padding: 5px;
-  margin-bottom: 10%;
-  margin-left: 20%;
-}
-.search {
-  width: 400px;
-}
 .searchBtn {
-  font-size: 15px;
-  padding: 5px;
   height: 55px;
 }
-.img {
+
+.containerTextField {
   padding: 15px;
-  margin-left: 23%;
+  display: flex;
+  margin: auto;
+}
+
+.search {
+  width: 50%;
+  padding: 12px;
+  resize: vertical;
+}
+.results {
+  width: 100%;
+  height: auto;
+  margin-top: 60px;
+}
+
+@media (min-width: 280px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 280px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 360px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 330px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 375px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 375px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 320px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 320px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 411px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 410px;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 575px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 575px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 715px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 715px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 745px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 745px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 760px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 760px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 768px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 768px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 1024px) {
+  .containerTextField {
+    margin-left: 15%;
+    width: 1024px;
+    align-items: stretch;
+  }
+}
+@media (min-width: 1040px) {
+  .containerTextField {
+    margin-left: 10%;
+    width: 1040px;
+    align-items: stretch;
+  }
 }

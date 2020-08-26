@@ -1,45 +1,111 @@
 .divDescription {
-  margin: 100px;
-  min-height: 500px;
-}
-h1 {
-  text-align: center;
-  font-family: "Merriweather, Georgia, serif";
-}
-.divPicture {
-  float: left;
-  margin: 20px;
-  width: 15%;
-  height: auto;
-}
-.poster {
   width: 100%;
   height: auto;
 }
+p {
+  text-align: center;
+  font-family: "Merriweather, Georgia, serif";
+  flex-shrink: 1;
+  font-size: 3em;
+}
+.divPicture {
+  float: left;
+  height: 78vh;
+  overflow: hidden;
+  border: 1px solid #92d2f9;
+  border-radius: 5px;
+  margin: 0 auto;
+  box-shadow: 7px 7px #dddddd;
+}
+.poster {
+  width: 60%;
+  height: auto;
+  overflow: hidden;
+  display: block;
+  padding: 5px;
+  margin-left: 19%;
+}
+
 .description {
   float: left;
-  margin-top: 80px;
-  margin-left: 100px;
-  width: 50%;
-  height: auto;
+  height: 78vh;
+  overflow: hidden;
+  padding: 20px;
 }
 span {
-  font-size: 1vw;
+  font-size: 1.2em;
   font-weight: bold;
   font-family: "Merriweather, Georgia, serif";
 }
-p {
-  font-size: 1vw;
+.overview {
+  font-size: 1.2em;
   font-family: "Merriweather, Georgia, serif";
+  text-align: left;
+  font-weight: normal;
 }
 .homeBtn {
-  font-size: 1vw;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: white;
   background-color: #00b2ff;
-  float: left;
-  margin-top: 100px;
   height: 40px;
-  width: 80px;
+  width: 60px;
   border-color: #00b2ff;
   border-radius: 5px;
-  box-shadow: 4px 4px 5px grey;
+  box-shadow: 2px 2px 3px grey;
+  margin: 0px auto;
+}
+/* css media query*/
+@media only screen and (max-width: 600px) {
+  .divPicture {
+    background: #e4edf2;
+    max-width: auto;
+  }
+  .divPicture {
+    height: fit-content;
+  }
+  .description {
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .divPicture {
+    background: #e4edf2;
+  }
+  .divPicture {
+    height: fit-content;
+  }
+  .description {
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .divPicture {
+    background: #e4edf2;
+  }
+  .description {
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .divPicture {
+    background: #e4edf2;
+  }
+  .divPicture {
+    height: fit-content;
+  }
+  .description {
+    height: fit-content;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .divPicture {
+    background: #e4edf2;
+  }
+  .divPicture {
+    height: fit-content;
+  }
+  .description {
+    height: fit-content;
+  }
 }

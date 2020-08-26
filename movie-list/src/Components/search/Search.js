@@ -4,6 +4,7 @@ import { TextField, Button, Container } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 import ResultsList from "./ResultsList";
+import MoviesResultsList from "./MovieResultsList/MovieResultsList";
 
 import Settings from "../../config/Settings";
 
@@ -91,11 +92,16 @@ class Search extends Component {
             Search
           </Button>
         </div>
-        <img src={popcorn2} className={styles.img} />
+
         {this.state.searchResults.length > 0 && (
           <Container className={styles.results}>
-            <ResultsList
+            {/* <ResultsList
               //movies={this.state.searchResults}
+              movies={currentPosts}
+              onAdd={this.handleAdd}
+              posts={currentPosts}
+            /> */}
+            <MoviesResultsList
               movies={currentPosts}
               onAdd={this.handleAdd}
               posts={currentPosts}

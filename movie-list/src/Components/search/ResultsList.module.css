@@ -7,6 +7,27 @@ p {
   font-size: 1vw;
 }
 .gridContainer {
-  margin: 2%;
+  padding: 5%;
   width: fit-content;
+}
+.gridImg {
+  padding: 5px;
+  flex-shrink: 1;
+}
+p {
+  font-size: 1.5em;
+  flex-shrink: 1;
+}
+.gridButton {
+  padding: 2%;
+  flex-shrink: 1;
+}
+
+.gridRelease {
+  padding: 2%;
+  flex-shrink: 1;
+}
+.gridTitle {
+  padding: 2%;
+  flex-shrink: 1;
 }

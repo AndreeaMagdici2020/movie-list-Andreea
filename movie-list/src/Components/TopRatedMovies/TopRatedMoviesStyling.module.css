@@ -4,7 +4,7 @@
 }
 
 ol {
-  margin-left: 0px;
+  margin-left: 5%;
   list-style: none;
   margin-top: 10px;
 }
@@ -16,6 +16,7 @@ ol li {
   font-size: 1.1em;
   color: navy;
   font-weight: 500;
+  width: fit-content;
 }
 h2 {
   text-align: center;

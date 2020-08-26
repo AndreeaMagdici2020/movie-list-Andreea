@@ -1,5 +1,6 @@
 .popularMovieItem:hover {
-  background-color: #e6e6fa;
+  background-color: navy;
+  color: white;
   font-weight: 600;
   border-radius: 8px;
   -webkit-animation-name: pulse;

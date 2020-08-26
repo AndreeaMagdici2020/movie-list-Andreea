@@ -9,6 +9,7 @@ import MovieDescription from "./Components/MovieDetails/MovieDescription";
 import Search from "./Components/search/Search";
 import styles from "./AppStyling.module.css";
 import TopRatedMovies from "./Components/TopRatedMovies/TopRatedMovies";
+
 const keygenerator = () => {
   Math.ceil(Math.random() * 10000);
 };
@@ -132,27 +133,27 @@ class App extends React.Component {
     const { savedMovies, user } = this.state;
     return (
       <Router>
-        <div className={styles.App}>
-          <div className={styles.header}>
+        <Grid container spacing={1} className={styles.App}>
+          <Grid item xs={12} className={styles.header}>
             <Header user={user} onLogout={this.logout} />
-          </div>
+          </Grid>
+
           {user ? (
             <Switch>
               <Route path="/" exact>
-                <React.Fragment>
-                  <div className={styles.mainPage}>
-                    <div className={styles.topRatedDiv}>
-                      <TopRatedMovies />
-                    </div>
-                    <div className={styles.searchDiv}>
-                      <Search
-                        className={styles.searchItem}
-                        onMovieAdd={this.onMovieAdd}
-                      />
-                    </div>
-                  </div>
+                <Grid container spacing={1} className={styles.mainPage}>
+                  <Grid item xs={12} sm={4} className={styles.topRatedDiv}>
+                    <TopRatedMovies />
+                  </Grid>
+                  <Grid item xs={12} sm={7} sm className={styles.searchDiv}>
+                    <Search
+                      className={styles.searchItem}
+                      onMovieAdd={this.onMovieAdd}
+                    />
+                  </Grid>
+                </Grid>
 
-                  {/* <Container maxWidth="md" style={{ marginLeft: "30%" }}>
+                {/* <Container maxWidth="md" style={{ marginLeft: "30%" }}>
                     <MovieList
                       key={keygenerator()}
                       savedMovies={savedMovies}
@@ -161,68 +162,91 @@ class App extends React.Component {
                       changeRating={this.changeRating}
                     />
                   </Container> */}
-                </React.Fragment>
               </Route>
               <Route path="/Settings">
-                <Typography
-                  align="center"
-                  color="primary"
-                  variant="h4"
-                  style={{ marginTop: "200px" }}
-                >
-                  {" "}
-                  Hello {user.userName}
-                </Typography>
+                <Grid container>
+                  <Grid item xs={12}>
+                    <Typography
+                      align="center"
+                      color="primary"
+                      variant="h4"
+                      style={{ margin: "0 auto", marginTop: "15%" }}
+                    >
+                      {" "}
+                      Hello {user.userName}
+                    </Typography>
+                  </Grid>
+                </Grid>
               </Route>
               <Route path="/details/:id">
-                {/* <MovieDetails /> !!!*/}
-                <MovieDescription />
+                <Grid container>
+                  <Grid item xs={12}>
+                    <MovieDescription />
+                    {/* <MovieDetails /> !!!*/}
+                  </Grid>
+                </Grid>
               </Route>
               <Route path="/FavoriteMovies" exact>
-                <Typography
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: "25px",
-                    marginTop: "70px",
-                    marginBottom: "40px",
-                    textAlign: "center",
-                    color: "navy",
-                  }}
-                >
-                  My Favorite Movies 🎞️
-                </Typography>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(3, 1fr)",
-                    marginLeft: "80px",
-                  }}
-                >
-                  <MovieList
-                    key={keygenerator()}
-                    savedMovies={savedMovies}
-                    onMovieDelete={this.onMovieDelete}
-                    savedRating={this.state.savedRating}
-                    changeRating={this.changeRating}
-                  />
-                </div>
+                <Grid container>
+                  <Grid item xs={12}>
+                    <Typography
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "25px",
+                        marginTop: "70px",
+                        marginBottom: "40px",
+                        textAlign: "center",
+                        color: "navy",
+                      }}
+                    >
+                      My Favorite Movies 🎞️
+                    </Typography>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(2, 1fr)",
+                        marginLeft: "80px",
+                      }}
+                    >
+                      <MovieList
+                        key={keygenerator()}
+                        savedMovies={savedMovies}
+                        onMovieDelete={this.onMovieDelete}
+                        savedRating={this.state.savedRating}
+                        changeRating={this.changeRating}
+                      />
+                    </div>
+                  </Grid>
+                </Grid>
               </Route>
               <Route path="/MovieDescription">
-                <MovieDescription />
+                <Grid container>
+                  <Grid item xs={12}>
+                    <MovieDescription />
+                  </Grid>
+                </Grid>
               </Route>
-              <Route path="*">Page not Found</Route>
+              <Route path="*">
+                <Grid container>
+                  <Grid item xs={12}>
+                    Page not Found
+                  </Grid>
+                </Grid>
+              </Route>
             </Switch>
           ) : (
-            <Container maxWidth="md">
-              <h2>Hello stranger!</h2>
-              <h4>What is your name?</h4>
-              <TextField label="Name" onChange={this.onUserChange} />
-              <Button variant="contained" onClick={this.handleAddUser}>
-                Save
-              </Button>
-            </Container>
+            <Grid container>
+              <Grid item xs={12}>
+                <h2>Hello stranger!</h2>
+                <h4>What is your name?</h4>
+                <TextField label="Name" onChange={this.onUserChange} />
+                <Button variant="contained" onClick={this.handleAddUser}>
+                  Save
+                </Button>
+              </Grid>
+            </Grid>
           )}
-        </div>
+        </Grid>
       </Router>
     );
   }
