@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./PagesStyling.module.css";
 import Button from "@material-ui/core/Button";
+
 class Pages extends React.Component {
   render() {
     const {
@@ -28,15 +29,20 @@ class Pages extends React.Component {
                 previousPage();
               }}
             >
-              <Button variant="contained" color="primary">
+              <Button
+                variant="contained"
+                color="primary"
+                style={{ flexShrink: "2" }}
+              >
                 Prev
               </Button>
             </p>
           </li>
+
           {pageNumbers.map((num) => (
             <li
               key={Math.random() * 10000}
-              style={{ float: "left", margin: "3px" }}
+              style={{ float: "left", margin: "3px", flexShrink: "2" }}
             >
               <p
                 onClick={() => {
@@ -50,7 +56,7 @@ class Pages extends React.Component {
             </li>
           ))}
 
-          <li style={{ margin: "3px", float: "left" }}>
+          <li style={{ margin: "3px", float: "left", flexShrink: "2" }}>
             <p
               onClick={() => {
                 nextPage();

@@ -12,7 +12,7 @@ class Rating extends React.Component {
 
   render() {
     const ratings = [...Array(5)].map((item, index) => index + 1);
-    const { changeRating, userRating, savedRating, movie } = this.props;
+    const { movie } = this.props;
     const { rating } = this.state;
     const movieId = movie.id;
 
@@ -29,6 +29,7 @@ class Rating extends React.Component {
               console.log("rating:", rating);
               //console.log("userrating:", this.state.rating);
             }}
+            key={Math.random() * 1000}
           >
             {rating >= item ? (
               <Star className={styles.star} />

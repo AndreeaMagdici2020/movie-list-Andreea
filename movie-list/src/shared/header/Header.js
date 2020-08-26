@@ -20,9 +20,15 @@ const Header = (props) => {
           <Grid item className={styles.gridItemUsername} sm={4} xs={12}>
             <IconButton edge="start" color="inherit" aria-label="menu">
               <Typography>
-                <span style={{ flexShrink: 1, margin: "5px" }}>📺</span>
-                <span style={{ flexShrink: 1, margin: "5px" }}>Movie List</span>
-                <span style={{ flexShrink: 1, margin: "5px" }}>🍿</span>
+                <span role="img" style={{ flexShrink: 1, margin: "5px" }}>
+                  📺
+                </span>
+                <span role="img" style={{ flexShrink: 1, margin: "5px" }}>
+                  Movie List
+                </span>
+                <span role="img" style={{ flexShrink: 1, margin: "5px" }}>
+                  🍿
+                </span>
                 {props.user && (
                   <span className={styles.userName}>
                     User: {props.user.userName}
@@ -96,7 +102,11 @@ const Header = (props) => {
                 }}
               >
                 <Button onClick={props.onLogout} color="inherit">
-                  <img src={logOff} style={{ width: "60%", height: "auto" }} />
+                  <img
+                    src={logOff}
+                    alt="logOff"
+                    style={{ width: "60%", height: "auto" }}
+                  />
                 </Button>
               </div>
             </Grid>

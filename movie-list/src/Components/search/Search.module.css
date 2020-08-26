@@ -23,89 +23,22 @@
   height: auto;
   margin-top: 60px;
 }
-
-@media (min-width: 280px) {
+@media screen and (max-width: 700px) and (min-width: 280px) {
   .containerTextField {
-    margin-left: 15%;
-    width: 280px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 360px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 330px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 375px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 375px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 320px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 320px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 411px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 410px;
-    align-items: stretch;
+    margin-left: 11% !important;
   }
 }
 
-@media (min-width: 575px) {
+@media screen and (max-width: 1000px) and (min-width: 700px) {
   .containerTextField {
-    margin-left: 15%;
-    width: 575px;
-    align-items: stretch;
+    margin-left: 10% !important;
+    margin-top: 10% !important;
   }
 }
-@media (min-width: 715px) {
+
+@media screen and (max-width: 1920px) and (min-width: 1024px) {
   .containerTextField {
-    margin-left: 15%;
-    width: 715px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 745px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 745px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 760px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 760px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 768px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 768px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 1024px) {
-  .containerTextField {
-    margin-left: 15%;
-    width: 1024px;
-    align-items: stretch;
-  }
-}
-@media (min-width: 1040px) {
-  .containerTextField {
-    margin-left: 10%;
-    width: 1040px;
-    align-items: stretch;
+    margin-left: 10% !important;
+    margin-top: 10% !important;
   }
 }

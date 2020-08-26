@@ -9,8 +9,6 @@ import {
   CardMedia,
   Typography,
   CardContent,
-  CardActions,
-  Button,
 } from "@material-ui/core";
 import styles from "./MovieDetailsStyling.module.css";
 

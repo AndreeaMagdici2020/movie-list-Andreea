@@ -20,7 +20,11 @@ const ResultsList = (props) => (
     {props.movies.map((item) => (
       <Grid className={styles.gridContainer} container key={item.id}>
         <Grid className={styles.gridImg} item xs={4}>
-          <img src={getPosterUrl(item.poster_path)} className={styles.poster} />
+          <img
+            src={getPosterUrl(item.poster_path)}
+            alt="poster"
+            className={styles.poster}
+          />
           <div id="mOverv" style={{ display: "block" }}>
             <MovieOverview item={item} />
           </div>

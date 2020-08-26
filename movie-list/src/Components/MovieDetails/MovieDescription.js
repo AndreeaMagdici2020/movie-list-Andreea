@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import getDetails from "./../../api/MovieService";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import img from "./img.jpg";
 import styles from "./MovieDescriptionStyling.module.css";
 import Grid from "@material-ui/core/Grid";
-import { TextareaAutosize } from "@material-ui/core";
 
 const getPosterUrl = (imageUri) =>
   imageUri ? `https://image.tmdb.org/t/p/w200${imageUri}` : img;
@@ -26,7 +25,7 @@ const getProductionCompanies = (movie) => {
       companies = movie[key];
       console.log("Production companies:", companies);
       return companies.map((item) => {
-        return item.name + "," + " ";
+        return item.name + ",";
       });
     }
   }
@@ -34,7 +33,6 @@ const getProductionCompanies = (movie) => {
 const MovieDescription = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-  let history = useHistory();
 
   useEffect(() => {
     getDetails(id).then((results) => setMovie(results.data));

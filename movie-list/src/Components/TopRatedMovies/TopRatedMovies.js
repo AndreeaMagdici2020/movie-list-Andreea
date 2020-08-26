@@ -63,6 +63,7 @@ class TopRatedMovies extends React.Component {
         >
           <img
             src={popcorn2}
+            alt="popcorn"
             className={styles.img}
             style={{ width: "100%", height: "100%" }}
           />

@@ -19,7 +19,6 @@ const MovieOverview = (props) => {
           </p>
         }
         placement="right"
-        className={styles.tooltip}
       >
         <button
           className={styles.detailsBtn}

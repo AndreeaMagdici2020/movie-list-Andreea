@@ -3,14 +3,11 @@ import axios from "axios";
 import { TextField, Button, Container } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
-import ResultsList from "./ResultsList";
+// import ResultsList from "./ResultsList";
 import MoviesResultsList from "./MovieResultsList/MovieResultsList";
-
 import Settings from "../../config/Settings";
-
 import styles from "./Search.module.css";
 import Pages from "./Pages";
-import popcorn2 from "./popcorn2.png";
 
 class Search extends Component {
   state = {

@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "./shared/header/Header";
-import { Grid, Container } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { TextField, Button, Typography } from "@material-ui/core";
 import MovieList from "./Components/movielist/MovieList";
-import MovieDetails from "./Components/MovieDetails/MovieDetails";
+// import MovieDetails from "./Components/MovieDetails/MovieDetails";
 import MovieDescription from "./Components/MovieDetails/MovieDescription";
 import Search from "./Components/search/Search";
 import styles from "./AppStyling.module.css";
@@ -23,7 +23,6 @@ class App extends React.Component {
   componentDidMount() {
     const savedMovies = localStorage.getItem("userData");
     const userDetails = localStorage.getItem("userDetails");
-    const savedRating = localStorage.getItem("savedRating");
 
     if (userDetails) {
       const parsedUser = JSON.parse(userDetails);
@@ -145,7 +144,7 @@ class App extends React.Component {
                   <Grid item xs={12} sm={4} className={styles.topRatedDiv}>
                     <TopRatedMovies />
                   </Grid>
-                  <Grid item xs={12} sm={7} sm className={styles.searchDiv}>
+                  <Grid item xs={12} sm={7} className={styles.searchDiv}>
                     <Search
                       className={styles.searchItem}
                       onMovieAdd={this.onMovieAdd}
@@ -199,23 +198,16 @@ class App extends React.Component {
                         color: "navy",
                       }}
                     >
-                      My Favorite Movies 🎞️
+                      My Favorite Movies <span role="img"> 🎞️</span>
                     </Typography>
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(2, 1fr)",
-                        marginLeft: "80px",
-                      }}
-                    >
-                      <MovieList
-                        key={keygenerator()}
-                        savedMovies={savedMovies}
-                        onMovieDelete={this.onMovieDelete}
-                        savedRating={this.state.savedRating}
-                        changeRating={this.changeRating}
-                      />
-                    </div>
+
+                    <MovieList
+                      key={keygenerator()}
+                      savedMovies={savedMovies}
+                      onMovieDelete={this.onMovieDelete}
+                      savedRating={this.state.savedRating}
+                      changeRating={this.changeRating}
+                    />
                   </Grid>
                 </Grid>
               </Route>

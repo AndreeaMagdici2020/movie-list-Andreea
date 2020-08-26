@@ -20,9 +20,10 @@ const MovieCard = (props) => {
   return (
     <Card
       style={{
-        width: "80%",
+        width: "60%",
         height: "auto",
         marginBottom: "30px",
+        marginLeft: "20%",
         boxShadow: "11px 11px 9px  #D3D3D3",
       }}
     >
@@ -46,16 +47,20 @@ const MovieCard = (props) => {
         <CardContent
           style={{
             width: "100%",
-            height: "70px",
+            height: "fit-content",
             overflow: "auto",
             marginTop: "3px",
             marginBottom: "3px",
           }}
         >
-          <Typography variant="h6" style={{ fontSize: "1vw" }}>
+          <Typography variant="h6" style={{ fontSize: "1em" }}>
             {movie.original_title}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            style={{ fontSize: "1em", textAlign: "left" }}
+          >
             {movie.release_date}
           </Typography>
           <div>
@@ -79,16 +84,18 @@ const MovieCard = (props) => {
         }}
       >
         <Button
-          size="large"
+          size="small"
           color="primary"
           onClick={() => onDeleteItem(movie)}
+          style={{ flexShrink: "1" }}
         >
           Delete
         </Button>
         <Button
-          size="large"
+          size="small"
           color="secondary"
           onClick={() => history.push(`/details/${movie.id}`)}
+          style={{ flexShrink: "1" }}
         >
           View Details
         </Button>

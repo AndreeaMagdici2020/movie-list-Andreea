@@ -1,8 +1,10 @@
 .nav {
   /* border: 2px solid navy; */
   height: 80px;
-  width: auto;
+  max-width: fit-content;
   margin: 20px;
+  margin-bottom: 100px;
+  display: flex;
 }
 
 .nav ul li p {
@@ -11,7 +13,7 @@
   margin-top: 11px;
   cursor: pointer;
 }
-
 ul {
-  margin-left: 30%;
+  max-width: max-content;
+  margin-bottom: 100px;
 }
